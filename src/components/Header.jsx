@@ -1,9 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import logo from '../assets/img/argentBankLogo.png';
 
 const Header = () => {
-    return (<header>
+
+    const store = useSelector((state) => state);
+    const user = store.user;
+    const dispatch = useDispatch();
+    const title = user !== null ? user.firstName + ' ' + user.lastName : 'SignIn';
+    const handleSignOut = () => {
+        dispatch({type: 'LOGOUT_ACTION'});
+    };
+
+    return (
+        <header>
             <nav className="main-nav">
                 <Link to="/" className="main-nav-logo">
                     <img
@@ -16,13 +27,23 @@ const Header = () => {
                 <div>
                     <Link
                         className="main-nav-item"
-                        to='/signIn'>
+                        to={store.loggedIn ? '/dashboard' : '/signIn'}
+                    >
                         <span className="fa fa-user-circle right"></span>
-                        TITRE PROJET
+                        &nbsp;{title}
                     </Link>
+                    {store.loggedIn && (<Link
+                        className="main-nav-item"
+                        to="/"
+                        onClick={() => handleSignOut()}
+                    >
+                        <i className="fa fa-sign-out"></i>
+                        &nbsp;Sign Out
+                    </Link>)}
                 </div>
             </nav>
-        </header>);
+        </header>
+    );
 };
 
 export default Header;
