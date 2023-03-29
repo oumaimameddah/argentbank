@@ -12,7 +12,6 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  /* height: 100%; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
   'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
   'Helvetica Neue', sans-serif;
@@ -75,29 +74,28 @@ code {
 
 .bg-dark {
   width: 100%;
-  height: 94%;
+  height: 86%;
   background-color: #12002b;
 }
 
 .sr-only {
   border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  clip: rect(1px, 1px, 1px, 1px) !important;
   -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
+  clip-path: inset(50%) !important;
   height: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-  white-space: nowrap !important; /* 3 */
+  white-space: nowrap !important;
 }
 
 .main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
 }
 
 .main-nav a {
@@ -161,7 +159,7 @@ code {
 @media (min-width: 920px) {
   .hero {
     height: 420px;
-    background-position: 0% 33%;
+    background-position: 0 33%;
   }
 
   .hero-content {
@@ -227,8 +225,7 @@ code {
   box-sizing: border-box;
   background-color: white;
   width: 300px;
-  margin: 0 auto;
-  margin-top: 3rem;
+  margin: 3rem auto 0;
   padding: 2rem;
 }
 
@@ -262,8 +259,8 @@ code {
 
 .footer {
   position: absolute;
-  bottom: 0;
-  /* display: flex; */
+  bottom: -9px;
+  display: flex;
   justify-content: center;
   width: 100%;
   border-top: 2px solid #ccc;
@@ -283,12 +280,11 @@ code {
   border: 1px solid black;
   background-color: #fff;
   width: 80%;
-  margin: 0 auto;
   flex-direction: column;
   padding: 1.5rem;
   box-sizing: border-box;
   text-align: left;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
 }
 
 .account-amount {
@@ -346,7 +342,7 @@ svg {
   position: fixed;
   top: 40%;
   left: 45%;
-  transform: (translate(-60%, -55%));
+  transform: translate(-60%, -55%);
   width: 100%;
   max-width: 10rem;
   animation: rotate 3.6s linear infinite;
@@ -496,7 +492,7 @@ circle {
   display: none;
   background: #12002b;
   width: 90%;
-  max-height: 0px;
+  max-height: 0;
   overflow: hidden;
   color: black;
   text-align: left;
@@ -561,4 +557,10 @@ circle {
   justify-content: space-around;
   margin: 10px auto;
   width: 175px;
+}
+
+.zone-edit > input {
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 10px 10px;
 }
