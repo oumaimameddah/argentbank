@@ -30,7 +30,7 @@ const Profil = () => {
       e.preventDefault();
       const editFirstName = document.querySelector('#editFirstName').value;
       const editLastName = document.querySelector('#editLastName').value;
-      dispatch(setUserData(editFirstName, editLastName));
+      dispatch(setUserData(editFirstName ? editFirstName : firstName, editLastName ? editLastName : lastName));
       setEdit(false);
    };
 
